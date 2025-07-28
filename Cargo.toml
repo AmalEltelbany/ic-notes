@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/note-dapp-with-ii-backend"
+]
+resolver = "2"

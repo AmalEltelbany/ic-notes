@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "note-dapp-with-ii-backend": {
+      "candid": "src/note-dapp-with-ii-backend/note-dapp-with-ii-backend.did",
+      "package": "note-dapp-with-ii-backend",
+      "type": "rust"
+    },
+    "note-dapp-with-ii-frontend": {
+      "dependencies": [
+        "note-dapp-with-ii-backend"
+      ],
+      "source": [
+        "src/note-dapp-with-ii-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "note-dapp-with-ii-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

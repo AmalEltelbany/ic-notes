@@ -51,7 +51,7 @@ struct TransactionRecord {
 
 #[derive(Clone, CandidType, Deserialize)]
 enum TransactionType {
-    Internal, // Our internal token system
+    Internal, // internal token system
     ICRC,     // ICRC ledger transaction
 }
 

@@ -45,5 +45,8 @@ The frontend runs in the browser and:
   - Transaction history
 
 ---
-
+<img width="1920" height="850" alt="Screenshot (45)" src="https://github.com/user-attachments/assets/3a59cac5-cc0f-4bcf-8cc7-2fc292d85830" />
+<img width="1920" height="869" alt="Screenshot (50)" src="https://github.com/user-attachments/assets/9d7d53e4-0b32-4f5d-b8ae-a85e3619d1e1" />
+<img width="1920" height="867" alt="Screenshot (51)" src="https://github.com/user-attachments/assets/b4537aec-c4fd-486a-8892-1192fa571685" />
+<img width="1920" height="841" alt="Screenshot (52)" src="https://github.com/user-attachments/assets/00ed8c9a-0ea8-4ff8-863a-0c443ae94442" />
 

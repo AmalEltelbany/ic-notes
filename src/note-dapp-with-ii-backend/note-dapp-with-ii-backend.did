@@ -1,3 +1,50 @@
+type Result = variant { Ok : nat64; Err : text };
+type Result_1 = variant { Ok : nat; Err : text };
+type Result_2 = variant { Ok : text; Err : TransferError };
+type Result_3 = variant { Ok; Err : text };
+type TransactionRecord = record {
+  transaction_id : text;
+  transaction_type : TransactionType;
+  block_index : opt nat64;
+  sender : text;
+  timestamp : nat64;
+  amount : nat64;
+  receiver : text;
+};
+type TransactionType = variant { Internal; ICRC };
+type TransferError = variant {
+  GenericError : record { message : text; error_code : nat };
+  TemporarilyUnavailable;
+  BadBurn : record { min_burn_amount : nat };
+  Duplicate : record { duplicate_of : nat };
+  InsufficientBalance;
+  BadFee : record { expected_fee : nat };
+  InvalidReceiver;
+  Unauthorized;
+  CreatedInFuture : record { ledger_time : nat64 };
+  TooOld;
+  InsufficientFunds : record { balance : nat };
+};
 service : {
-    "greet": (text) -> (text) query;
+  add_note : (text) -> (Result);
+  delete_note : (nat64) -> ();
+  get_all_balances : () -> (vec record { text; nat64 }) query;
+  get_balance : () -> (nat64) query;
+  get_balance_of : (principal) -> (nat64) query;
+  get_icrc_balance : () -> (Result_1);
+  get_icrc_balance_of : (principal) -> (Result_1);
+  get_icrc_ledger_canister_id : () -> (opt principal) query;
+  get_notes : () -> (vec record { nat64; text }) query;
+  get_transaction_history : () -> (vec TransactionRecord) query;
+  get_transaction_history_filtered : (opt TransactionType) -> (
+      vec TransactionRecord,
+    ) query;
+  icrc_transfer : (principal, nat64) -> (Result_2);
+  is_user_authenticated : () -> (bool) query;
+  mint_tokens : (principal, nat64) -> (Result_3);
+  search_notes : (text) -> (vec record { nat64; text }) query;
+  set_icrc_ledger_canister_id : (principal) -> (Result_3);
+  transfer : (principal, nat64) -> (Result_2);
+  update_note : (nat64, text) -> ();
+  whoami : () -> (principal) query;
 }
